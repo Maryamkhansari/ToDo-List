@@ -145,7 +145,7 @@ body {
   body.dark-mode input,
   body.dark-mode button,
   body.dark-mode li {
-    background: #8f8383;
+    background:gray;
     color: #7a7878;
     border-color: #555;
   }
