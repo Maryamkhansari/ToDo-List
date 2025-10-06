@@ -1,0 +1,183 @@
+body {
+      font-family: 'Vazir', 'Roboto', sans-serif;
+      background:rgba(13, 34, 73, 0.712);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh; 
+      padding-top: 50px; 
+    }
+
+    #main {
+      background:rgba(191, 201, 218, 0.46);
+      width: 400px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+      
+    }
+
+    h2 {
+      margin-top: 5px;
+      text-align: center;
+      color: #333;
+    }
+    
+
+    #taskinput {
+      background-color: #ffffff;
+      font-family: 'vazir', 'Roboto';
+      height: 50px;
+      width: 85%;
+      padding: 10px;
+      border: 1px solid rgba(13, 34, 73, 0.712);
+      border-radius: 5px;
+      font-size: 18px;
+      box-sizing: border-box;
+    }
+
+    #addBtn {
+      padding: 8px 12px;
+      border: none;
+      background: hsl(236, 29%, 47%);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    #addBtn:hover {
+      background: #2b3280;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background:rgba(0, 0, 3, 0.082);
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #443f3f;
+    }
+
+    li.done {
+      text-decoration: line-through;
+      color:rgb(51, 47, 47);
+    }
+
+    .deleteBtn {
+      background: darkred;
+      color: white;
+      border: none;
+      padding: 1px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .editBtn{
+      background: none;
+      border: none;
+    }
+    .editBtn:hover{
+      cursor: pointer;
+    }
+
+    .deleteBtn:hover {
+      background: rgb(82, 7, 7);
+    }
+    .task-checkbox {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1px 5px;
+    margin-right: 5px;
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  .editBtn {
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .editBtn:hover {
+    transform: scale(1.1);
+  }
+
+  .edit-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  body.dark-mode h2 {
+  color: #b0b0b0;
+}
+
+  #themeToggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  #taskinput {
+    color: black;
+  }
+  body.dark-mode {
+    background: #1e1e1e;
+    color: #aca3a3;
+  }
+
+  body.dark-mode #main {
+    background: #2c2c2c;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+  }
+
+  body.dark-mode input,
+  body.dark-mode button,
+  body.dark-mode li {
+    background: #8f8383;
+    color: #fff;
+    border-color: #555;
+  }
+ 
+#themeToggle {
+    position: fixed;  
+    top: 1px;
+    right: 20px;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #2b3280;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    transition: 0.3s;
+}
+
+#themeToggle:hover {
+  background: #3a44a1;
+}
+
+body.dark-mode #themeToggle {
+  background: #777; 
+  color: #fff;
+}
+
+body.dark-mode #themeToggle:hover {
+  background: #999;
+}
+
+
+
+
