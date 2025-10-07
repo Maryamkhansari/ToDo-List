@@ -39,7 +39,7 @@ body {
     #addBtn {
       padding: 8px 12px;
       border: none;
-      background: hsl(236, 29%, 47%);
+      background:rgb(118, 118, 161);
       color: white;
       border-radius: 5px;
       cursor: pointer;
@@ -48,6 +48,12 @@ body {
 
     #addBtn:hover {
       background: #2b3280;
+    }
+    body.dark-mode #addBtn{
+      background-color: #777;
+    }
+    body.dark-mode #addBtn:hover{
+    background-color: #4e4949;
     }
 
     ul {
@@ -185,10 +191,29 @@ body.dark-mode #themeToggle:hover {
 }
 
 #clock {
+  font-weight: 100;
+  border-radius: 8px;
+  background: #8895a5;
   font-size: 1rem;
   letter-spacing: 1px;
+  box-shadow: 0 0 25px rgb(57, 63, 71), 0 0 rgb(57, 63, 71)inset;
+}
+body.dark-mode #clock{
+  font-weight: 100;
+  border-radius: 8px;
+  background: #4d4444;
+  box-shadow: 0 0 25px rgb(226, 233, 233), 0 0 rgb(226, 233, 233) inset;
+  color: rgb(204, 218, 218);
+}
+body.dark-mode #clock.weekday{
+  color: rgb(241, 247, 247);
 }
 
+
+body.dark-mode #clock.time {
+  color: #80ff80; 
+  text-shadow: 0 0 10px #80ff80;
+}
 
 
 
