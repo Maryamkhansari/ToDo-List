@@ -177,6 +177,18 @@ body.dark-mode #themeToggle {
 body.dark-mode #themeToggle:hover {
   background: #999;
 }
+.clock-container {
+  text-align: center;
+  margin: 10px 0;
+  font-family: "Vazirmatn", sans-serif;
+  color: #353232;
+}
+
+#clock {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
 
 
 
