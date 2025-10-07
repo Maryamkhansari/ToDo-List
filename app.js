@@ -83,10 +83,9 @@ editBtn.appendChild(editIcon)
   li.appendChild(actions);
   tasklist.appendChild(li);
 
-  saveTasks(); // هر بار که تسک ساخته میشه ذخیره کن
+  saveTasks(); 
 }
 
-// --- افزودن تسک جدید ---
 function addTask() {
   let taskText = input.value.trim();
   if (taskText === "") {
@@ -116,7 +115,6 @@ if ("serviceWorker" in navigator) {
 }
 const themeToggle = document.getElementById("themeToggle");
 
-// بررسی حالت ذخیره‌شده قبلی
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   themeToggle.textContent = "Light Mode";
@@ -163,6 +161,7 @@ function updateClock() {
 
  
   const timeString = now.toLocaleTimeString('en-US', { hour12: false });
+
 
   const formatted = `${weekday}, ${dayNumber} ${persianMonth} — ${timeString}`;
 
