@@ -134,22 +134,42 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
+
 function updateClock() {
   const now = new Date();
-  const options = { 
-    weekday: 'long', 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric', 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
-  };
-  const formattedTime = now.toLocaleString('fa-IR', options);
-  document.getElementById('clock').textContent = formattedTime;
-}
 
+  const weekdays = [
+    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+  ];
+  const weekday = weekdays[now.getDay()];
+
+
+  const persianMonths = [
+    "Farvardin", "Ordibehesht", "Khordad", "Tir",
+    "Mordad", "Shahrivar", "Mehr", "Aban",
+    "Azar", "Dey", "Bahman", "Esfand"
+  ];
+
+  
+  const persianDate = new Intl.DateTimeFormat('fa-IR-u-nu-latn', {
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
+  }).formatToParts(now);
+
+  const dayNumber = persianDate.find(p => p.type === 'day').value;
+  const monthNumber = parseInt(persianDate.find(p => p.type === 'month').value, 10);
+  const persianMonth = persianMonths[monthNumber - 1];
+
+ 
+  const timeString = now.toLocaleTimeString('en-US', { hour12: false });
+
+  const formatted = `${weekday}, ${dayNumber} ${persianMonth} — ${timeString}`;
+
+  document.getElementById('clock').textContent = formatted;
+}
 
 setInterval(updateClock, 1000);
 updateClock();
+
 
