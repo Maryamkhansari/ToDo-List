@@ -215,6 +215,93 @@ body.dark-mode #clock.time {
   text-shadow: 0 0 10px #80ff80;
 }
 
+/* =======================
+   📱 طراحی ریسپانسیو
+   ======================= */
+
+/* نمایش درست در موبایل (عرض کمتر از 480px) */
+@media (max-width: 480px) {
+  body {
+    padding-top: 20px;
+    align-items: center;
+  }
+
+  #main {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  #taskinput {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #addBtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-left: 0;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  #themeToggle {
+    position: static;
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+  }
+
+  #clock {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #main {
+    width: 80%;
+  }
+
+  #taskinput {
+    font-size: 17px;
+  }
+
+  li {
+    padding: 12px;
+  }
+
+  #clock {
+    font-size: 1rem;
+  }
+}
+
+/* 🖥 دسکتاپ (عرض بالاتر از 1024px) */
+@media (min-width: 1024px) {
+  #main {
+    width: 450px;
+  }
+
+  #clock {
+    font-size: 1.1rem;
+  }
+}
 
 
 
