@@ -1,6 +1,7 @@
 const input = document.getElementById("taskinput");
 const addBtn = document.getElementById("addBtn");
 const tasklist = document.getElementById("tasklist");
+const taskCounter = document.getElementById("taskCounter");
 
 // --- ذخیره تسک‌ها در localStorage ---
 function saveTasks() {
@@ -11,6 +12,8 @@ function saveTasks() {
     tasks.push({ text: taskText, done: done });
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
+
+  updateTaskCounter();
 }
 
 // --- بارگذاری تسک‌ها از localStorage ---
@@ -19,6 +22,9 @@ function loadTasks() {
   tasks.forEach(task => {
     createTask(task.text, task.done);
   });
+
+
+  updateTaskCounter();
 }
 
 // --- تابع ساخت تسک ---
@@ -41,6 +47,7 @@ function createTask(taskText, done = false) {
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "✖️";
   deleteBtn.className = "deleteBtn";
+
   // دکمه ویرایش
   let editBtn = document.createElement("button");
   editBtn.className = "editBtn";
@@ -50,20 +57,21 @@ function createTask(taskText, done = false) {
   editIcon.alt = "edit";
   editIcon.className = "edit-icon";
 
-editBtn.appendChild(editIcon)
-  // کانتینر برای دکمه‌ها سمت راست
+  editBtn.appendChild(editIcon);
+
+  // کانتینر برای دکمه‌ها
   let actions = document.createElement("div");
   actions.className = "task-actions";
-  actions.appendChild(editBtn)
+  actions.appendChild(editBtn);
   actions.appendChild(checkbox);
   actions.appendChild(deleteBtn);
 
-  //رویداد ادیت تسک ها 
-  editBtn.addEventListener("click", function(){
+  // رویداد ادیت
+  editBtn.addEventListener("click", function () {
     input.value = span.textContent;
     li.remove();
     saveTasks();
-  })
+  });
 
   // رویداد چک باکس
   checkbox.addEventListener("change", function () {
@@ -107,12 +115,14 @@ input.addEventListener("keydown", function (event) {
 // بارگذاری تسک‌ها موقع شروع
 loadTasks();
 
-// Service Worker
+// --- Service Worker ---
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js").then(() => {
     console.log("Service Worker registered!");
   });
 }
+
+// --- حالت تیره/روشن ---
 const themeToggle = document.getElementById("themeToggle");
 
 if (localStorage.getItem("theme") === "dark") {
@@ -132,7 +142,7 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
-
+// --- ساعت و تاریخ ---
 function updateClock() {
   const now = new Date();
 
@@ -141,14 +151,12 @@ function updateClock() {
   ];
   const weekday = weekdays[now.getDay()];
 
-
   const persianMonths = [
     "Farvardin", "Ordibehesht", "Khordad", "Tir",
     "Mordad", "Shahrivar", "Mehr", "Aban",
     "Azar", "Dey", "Bahman", "Esfand"
   ];
 
-  
   const persianDate = new Intl.DateTimeFormat('fa-IR-u-nu-latn', {
     day: 'numeric',
     month: 'numeric',
@@ -159,12 +167,9 @@ function updateClock() {
   const monthNumber = parseInt(persianDate.find(p => p.type === 'month').value, 10);
   const persianMonth = persianMonths[monthNumber - 1];
 
- 
   const timeString = now.toLocaleTimeString('en-US', { hour12: false });
 
-
   const formatted = `${weekday}, ${dayNumber} ${persianMonth} — ${timeString}`;
-
   document.getElementById('clock').textContent = formatted;
 }
 
@@ -172,3 +177,12 @@ setInterval(updateClock, 1000);
 updateClock();
 
 
+function updateTaskCounter() {
+  const tasks = document.querySelectorAll('#tasklist li');
+  const doneTasks = document.querySelectorAll('#tasklist li.done');
+  const total = tasks.length;
+  const done = doneTasks.length;
+  const remaining = total - done; 
+
+
+  taskCounter.textContent = `${remaining}/${total}` }
