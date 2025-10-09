@@ -2,7 +2,7 @@
 
 A simple yet modern To-Do List app built with HTML, CSS, and JavaScript. This project helps you organize and manage your tasks efficiently with a clean and minimalistic design. It supports features like adding, deleting, and marking tasks as done, with persistent data storage using **Local Storage**.
 
-![To-Do List Screenshot](images/screenshot.png)
+![To-Do List Screenshot](images/Screenshot.png)
 
 ## Features
 
