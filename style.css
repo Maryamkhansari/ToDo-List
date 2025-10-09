@@ -302,6 +302,19 @@ body.dark-mode #clock.time {
     font-size: 1.1rem;
   }
 }
+.task-counter {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #2b3280;
+  font-weight: 600;
+}
+
+body.dark-mode .task-counter {
+  color: #d3d3d3;
+}
+
 
 
 
